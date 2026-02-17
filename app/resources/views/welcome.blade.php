@@ -50,9 +50,9 @@
                                 <div class="flex gap-2">
                                     <a href="" class="bg-blue-500 px-4 py-2 rounded-xl text-white text-xl cursor-pointer">Modifier</a>
 
-                                    <form action="" method="post">
+                                    <form action="{{ route('task.delete', $task) }}" method="post">
                                         @csrf
-                                        <input type="hidden" name="id" value="">
+                                        @method('DELETE')
                                         <button type="submit" 
                                         class="bg-red-500 px-4 py-2 rounded-xl text-white text-xl cursor-pointer">
                                         Supprimer
