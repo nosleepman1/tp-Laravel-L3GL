@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+
 Route::get('/', function () {
-    return view('welcome');
+
+    $tasks = ['task1', 'task2'];
+    return view('welcome', [
+        'tasks'=> $tasks,
+    ]);
 });
