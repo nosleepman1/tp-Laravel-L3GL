@@ -24,8 +24,9 @@
        
 
         <form action="{{ route('store') }}" method="post" class="flex gap-3">
+            @csrf
             <input type="text" 
-            name="task"
+            name="title"
             class=" w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             >
             <button type="submit" class="bg-blue-500 px-4 py-2 rounded-xl text-white text-xl cursor-pointer">Ajouter</button>
@@ -43,13 +44,14 @@
                     @forelse ( $tasks as $task ):
 
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">{{ $task }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">{{ $task->title }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 
                                 <div class="flex gap-2">
                                     <a href="" class="bg-blue-500 px-4 py-2 rounded-xl text-white text-xl cursor-pointer">Modifier</a>
 
                                     <form action="" method="post">
+                                        @csrf
                                         <input type="hidden" name="id" value="">
                                         <button type="submit" 
                                         class="bg-red-500 px-4 py-2 rounded-xl text-white text-xl cursor-pointer">

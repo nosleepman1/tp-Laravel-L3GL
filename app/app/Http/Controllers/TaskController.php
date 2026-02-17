@@ -33,9 +33,7 @@ class TaskController extends Controller
     {
         Task::create($request->validated());
 
-        return redirect()->route("welcome", [
-            'tasks' => Task::all()
-        ]);
+        return redirect()->route('welcome');
     }
 
     /**
@@ -67,6 +65,6 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        $task->delete();
     }
 }
