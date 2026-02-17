@@ -13,7 +13,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        return view("welcome", [
+            "tasks"=> Task::all()
+        ]);
     }
 
     /**
@@ -21,7 +23,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -29,7 +31,11 @@ class TaskController extends Controller
      */
     public function store(StoreTaskRequest $request)
     {
-        //
+        Task::create($request->validated());
+
+        return redirect()->route("welcome", [
+            'tasks' => Task::all()
+        ]);
     }
 
     /**

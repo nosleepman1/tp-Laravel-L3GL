@@ -11,18 +11,20 @@ class UpdateTaskRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|string|min:3',
         ];
+    }
+
+    public function messages(): array {
+        return [
+            'title.required'=> 'le champ est requis',
+            'title.min'=> 'minimum 3 caracteres'
+            ];
     }
 }
